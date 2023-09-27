@@ -1,16 +1,11 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHand } from "@fortawesome/free-solid-svg-icons";
+import PanToolOutlinedIcon from '@mui/icons-material/PanToolOutlined';
 import "./search.css";
 export default function Search() {
   return (
     <div className=" search p-4 text-start my-3 mx-4 rounded shadow">
-      <h2 className="text-start">
-        <FontAwesomeIcon
-          icon={faHand}
-          size="xlg"
-          style={{ color: "#ffffff" }}
-        />{" "}
+      <h2 className="text-start d-flex align-items-center">
+      <PanToolOutlinedIcon className="me-2"  fontSize="large" color="inherit"/>
         Welcome to our movie app
       </h2>
       <div className="container my-3 mx-4">
