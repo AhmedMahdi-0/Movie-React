@@ -34,15 +34,7 @@ export default function Card() {
   const [hover, setHover] = useState(false);
   return (
     <div
-      
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(6, 1fr)",
-        gap: "10px",
-        // "@media screen and (max-width: 1200px)": {
-        //   gridTemplateColumns: "repeat(3, 1fr)",
-        // }
-      }}
+     className="row row-col-6 ms-5"
     >
       <div className="card col-2 mx-1 border-0 mb-5" style={{ width: "14rem" }}>
         <img
