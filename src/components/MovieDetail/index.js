@@ -1,6 +1,6 @@
 import React from 'react'
-import DetailCard from './DetailCard'
-import Recommend from './Recommendations'
+import DetailCard from './components/DetailCard'
+import Recommend from './components/Recommendations'
 export default function MovieDetil() {
   return (
     <div>

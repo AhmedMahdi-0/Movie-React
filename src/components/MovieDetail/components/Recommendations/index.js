@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../../Home/components/MovieList/Card";
+import Card from "../../../Home/components/MovieList/Card";
 export default function Recommend() {
   return (
     <div>
