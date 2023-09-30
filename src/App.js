@@ -4,19 +4,17 @@ import "./App.css";
 import Home from "./components/Home";
 import MovieDetail from "./components/MovieDetail";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
+import WatchList from "./components/Watchlist";
 function App() {
   return (
     <div className="App">
-      <Header />
       <BrowserRouter>
-      <Routes>
-        <Route path ="/" element={<Home />}/>
-        <Route path ="/movie-detail/:id" element={<MovieDetail />}/>
-
-        <Route></Route>
-     
-        
-              </Routes>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/movie-detail/:id" element={<MovieDetail />} />
+          <Route path="/watchlist" element={<WatchList />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );

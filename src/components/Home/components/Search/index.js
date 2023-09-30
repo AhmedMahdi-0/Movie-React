@@ -1,11 +1,15 @@
 import React from "react";
-import PanToolOutlinedIcon from '@mui/icons-material/PanToolOutlined';
+import PanToolOutlinedIcon from "@mui/icons-material/PanToolOutlined";
 import "./search.css";
 export default function Search() {
   return (
     <div className=" search p-4 text-start my-3 mx-4 rounded shadow">
       <h2 className="text-start d-flex align-items-center">
-      <PanToolOutlinedIcon className="me-2"  fontSize="large" color="inherit"/>
+        <PanToolOutlinedIcon
+          className="me-2"
+          fontSize="large"
+          color="inherit"
+        />
         Welcome to our movie app
       </h2>
       <div className="container my-3 mx-4">
