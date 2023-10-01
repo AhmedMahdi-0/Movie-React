@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { Box, CircularProgress, Typography } from "@mui/material";
 function CircularProgressWithLabel(props) {
@@ -28,20 +27,19 @@ function CircularProgressWithLabel(props) {
 }
 
 export default function Recommend() {
-  const favoriteArray = useSelector((state) => state.favoriteArray);
-  const dispatch = useDispatch();
+  
   const [movieList, setMovieList] = useState([]);
+  const params=useParams()
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get("https://api.themoviedb.org/3/movie/popular?", {
+      .get(`https://api.themoviedb.org/3/movie/${params.id}/recommendations?`, {
         params: {
           api_key: "c3e41ae2e46b713e0683aa652c201c55",
         },
       })
       .then((res) => {
         setMovieList(res.data.results.slice(0, 5));
-        console.log(movieList);
       });
   }, []);
   return (

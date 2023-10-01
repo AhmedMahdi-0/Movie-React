@@ -76,7 +76,6 @@ export default function Card() {
     }
   };
 
-  useEffect(() => {}, [favoriteArray]);
   return (
     <>
       <div className="row row-cols-5 ms-5">

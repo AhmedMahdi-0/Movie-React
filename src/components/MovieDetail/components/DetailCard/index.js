@@ -87,6 +87,7 @@ export default function DetailCard() {
           <h4 className="my-3">{movie.overview}</h4>
           <div className="catg d-flex flex-inline my-4">
             {movie?.genres?.map((catg) => {
+              console.log(movie)
               return (
                 <div className="bg-warning px-3 py-1 rounded me-2 fs-5 fw-bold">
                   {" "}
@@ -97,14 +98,14 @@ export default function DetailCard() {
           </div>
           <div className="d-flex flex-inline fs-5 align-items-center">
             <p className="me-4 ">
-              <span className="fw-bold me-3 ">Duration:</span>
+              <span className="fw-bold me-3 ">Duration: </span>
               {movie.runtime} minutes{" "}
             </p>
             <p>
-              <span className="fw-bold me-3">Languages</span>
-              {movie?.spoken_languages?.map((lang) => {
-                return `${lang.english_name} `;
-              })}
+              <span className="fw-bold me-3">Languages: </span>
+              {movie?.spoken_languages
+                ?.map((lang) => lang.english_name)
+                .join(" | ")}
             </p>
           </div>
           <div>
