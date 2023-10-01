@@ -17,7 +17,7 @@ export default function SearchList() {
     axios
       .get("https://api.themoviedb.org/3/search/movie", {
         params: {
-          api_key: "c3e41ae2e46b713e0683aa652c201c55",
+          api_key: process.env.REACT_APP_API_KEY ,
           query: params.title,
         },
       })
