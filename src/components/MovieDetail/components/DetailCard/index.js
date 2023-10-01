@@ -16,7 +16,7 @@ export default function DetailCard() {
     axios
       .get(`https://api.themoviedb.org/3/movie/${params.id}}`, {
         params: {
-          api_key: "c3e41ae2e46b713e0683aa652c201c55",
+          api_key: process.env.REACT_APP_API_KEY,
         },
       })
       .then((res) => {

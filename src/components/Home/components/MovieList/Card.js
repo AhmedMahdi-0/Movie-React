@@ -38,48 +38,15 @@ function CircularProgressWithLabel(props) {
   );
 }
 
-export default function Card() {
+export default function Card(props) {
+  const navigate=useNavigate();
+  const dispatch=useDispatch();
   const favoriteArray = useSelector((state) => state.favoriteArray);
-  const [movieList, setMovieList] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 500;
-
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    // Fetch movie data when the component mounts
-    fetchMovies();
-  }, [currentPage]);
-
-  const fetchMovies = () => {
-    axios
-      .get("https://api.themoviedb.org/3/movie/popular", {
-        params: {
-          api_key: "c3e41ae2e46b713e0683aa652c201c55",
-          page: currentPage,
-        },
-      })
-      .then((res) => {
-        const results = res.data.results; // Destructure the response
-        setMovieList(results);
-      })
-      .catch((error) => {
-        console.error("Error fetching movies:", error);
-      });
-  };
-
-  const handlePageChange = (newPage) => {
-    if (newPage >= 1 && newPage <= totalPages) {
-      setCurrentPage(newPage);
-      window.scrollTo(0, 0);
-    }
-  };
 
   return (
     <>
       <div className="row row-cols-5 ms-5">
-        {movieList.map((movie) => {
+        {props.movieList.map((movie) => {
           return (
             <div
               className="card h-100 col mx-1   gy-3"
@@ -133,18 +100,18 @@ export default function Card() {
             </div>
           );
         })}
-      </div>
+        </div>
       <div className="d-flex justify-content-center mt-4 mb-5">
         <Pagination
           count={500}
-          page={currentPage}
-          onChange={(event, page) => handlePageChange(page)}
+          page={props.currentPage}
+          onChange={(event, page) => props.handlePageChange(page)}
           variant="outlined"
           color="primary"
           renderItem={(item) => (
             <PaginationItem
               component="button"
-              onClick={() => handlePageChange(item.page)}
+              onClick={() => props.handlePageChange(item.page)}
               {...item}
               icon={
                 item.type === "previous" ? (
@@ -156,6 +123,7 @@ export default function Card() {
             />
           )}
         />
+      
       </div>
     </>
   );
