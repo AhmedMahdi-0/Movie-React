@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import PanToolOutlinedIcon from "@mui/icons-material/PanToolOutlined";
 import "./search.css";
+import { useNavigate } from "react-router-dom";
 export default function Search() {
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate(); // Initialize navigate
+
+  const handleSearch = () => {
+    if (query.trim() !== "") {
+      navigate(`/search/${query}`); // Use navigate to redirect
+    }
+  };
+
+  const handleInputChange = (e) => {
+    setQuery(e.target.value);
+  };
   return (
     <div className=" search p-4 text-start my-3 mx-4 rounded shadow">
       <h2 className="text-start d-flex align-items-center">
@@ -23,10 +36,17 @@ export default function Search() {
               type="text"
               className="form-control shadow"
               placeholder="Search and Explore"
+              value={query}
+              onChange={handleInputChange}
             />
           </div>
           <div className="col">
-            <button className="btn btn-warning px-4 py-2 shadow">Search</button>
+            <button
+              onClick={handleSearch}
+              className="btn btn-warning px-4 py-2 shadow"
+            >
+              Search
+            </button>
           </div>
         </div>
       </div>
