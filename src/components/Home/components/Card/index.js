@@ -1,7 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
-import { Box, CircularProgress, Typography } from "@mui/material";
+import React from "react";
+import { FavoriteBorder, Favorite } from "@mui/icons-material";
+import CircularProgress from "@mui/material/CircularProgress";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import { yellow } from "@mui/material/colors";
+import { useDispatch, useSelector } from "react-redux";
+import { addRemoveFavorite } from "../../../../store/slices/favorite";
+import { useNavigate } from "react-router-dom";
+import "./card.css";
+
 function CircularProgressWithLabel(props) {
   return (
     <Box sx={{ position: "relative", display: "inline-flex" }}>
@@ -26,27 +33,15 @@ function CircularProgressWithLabel(props) {
   );
 }
 
-export default function Recommend() {
-  
-  const [movieList, setMovieList] = useState([]);
-  const params=useParams()
+export default function Card(props) {
   const navigate = useNavigate();
-  useEffect(() => {
-    axios
-      .get(`https://api.themoviedb.org/3/movie/${params.id}/recommendations?`, {
-        params: {
-          api_key: process.env.REACT_APP_API_KEY,
-        },
-      })
-      .then((res) => {
-        setMovieList(res.data.results.slice(0, 5));
-      });
-  }, []);
+  const dispatch = useDispatch();
+  const favoriteArray = useSelector((state) => state.favoriteArray);
+
   return (
-    <div className="mb-5">
-      <h1 className="fw-bold text-start p-4 ">Recommendations</h1>
+    <>
       <div className="row row-cols-5 ms-5">
-        {movieList.map((movie) => {
+        {props.movieList.map((movie) => {
           return (
             <div
               className="card h-100 col mx-1   gy-3"
@@ -74,12 +69,33 @@ export default function Recommend() {
                   <div className=" text-secondary fw-bold">
                     {movie.release_date}
                   </div>
+
+                  <div
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      dispatch(addRemoveFavorite(movie));
+                    }}
+                  >
+                    {favoriteArray.some(
+                      (favoriteMovie) => favoriteMovie.id === movie.id
+                    ) ? (
+                      <Favorite
+                        sx={{ color: yellow[300] }}
+                        style={{ cursor: "pointer" }}
+                      />
+                    ) : (
+                      <FavoriteBorder
+                        sx={{ color: yellow[300] }}
+                        style={{ cursor: "pointer" }}
+                      />
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
           );
         })}
       </div>
-    </div>
+    </>
   );
 }
