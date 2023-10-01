@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import Rating from "@mui/material/Rating";
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addRemoveFavorite } from "../../../../store/slices/favorite";
 import { yellow } from "@mui/material/colors";
 export default function DetailCard() {
   const [movie, setMovie] = useState({});
   const params = useParams();
+  const navigate = useNavigate();
   const favoriteArray = useSelector((state) => state.favoriteArray);
   const [companyPoster, setCompanyPoster] = useState("");
   const dispatch = useDispatch();
@@ -29,6 +30,11 @@ export default function DetailCard() {
           setCompanyPoster(companyWithLogo.logo_path);
         }
         window.scrollTo(0, 0);
+      })
+      .catch((err) => {
+            
+          navigate("/not-found");
+       
       });
   }, [params.id]);
 
@@ -87,7 +93,7 @@ export default function DetailCard() {
           <h4 className="my-3">{movie.overview}</h4>
           <div className="catg d-flex flex-inline my-4">
             {movie?.genres?.map((catg) => {
-              console.log(movie)
+              console.log(movie);
               return (
                 <div className="bg-warning px-3 py-1 rounded me-2 fs-5 fw-bold">
                   {" "}

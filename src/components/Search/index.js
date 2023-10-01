@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Searchcomp from "./components/SearchField";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Card from "../Home/components/Card";
 
 export default function Search() {
   const params = useParams();
   const [searchList, setSearchList] = useState([]);
+  const navigate = useNavigate();
 
   const fetchMovies = () => {
     axios
@@ -20,8 +21,8 @@ export default function Search() {
         const results = res.data.results; // Destructure the response
         setSearchList(results);
       })
-      .catch((error) => {
-        console.error("Error fetching movies:", error);
+      .catch((err) => {
+        navigate("/not-found");
       });
   };
   useEffect(() => {
