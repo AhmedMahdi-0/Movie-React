@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import { yellow } from "@mui/material/colors";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import  { addRemoveFavorite } from "../../../../store/slices/favorite";
+import { addRemoveFavorite } from "../../../../store/slices/favorite";
 import { useNavigate } from "react-router-dom";
 import "./card.css";
 import Pagination from "@mui/material/Pagination";
@@ -42,9 +42,8 @@ export default function Card() {
   const favoriteArray = useSelector((state) => state.favoriteArray);
   const [movieList, setMovieList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1); // Initialize with 1 page
-  const perPage = 12; // Number of items to display per page
-  const [displayedMovies, setDisplayedMovies] = useState([]);
+  const totalPages = 500;
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -62,13 +61,8 @@ export default function Card() {
         },
       })
       .then((res) => {
-        const { results, total_pages } = res.data; // Destructure the response
+        const results = res.data.results; // Destructure the response
         setMovieList(results);
-        setTotalPages(total_pages);
-        // Calculate the range of movies to display on the current page
-        const startIndex = (currentPage - 1) * perPage;
-        const endIndex = startIndex + perPage;
-        setDisplayedMovies(results.slice(startIndex, endIndex));
       })
       .catch((error) => {
         console.error("Error fetching movies:", error);
