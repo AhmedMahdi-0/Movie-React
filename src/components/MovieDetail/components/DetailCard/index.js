@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Rating from "@mui/material/Rating";
-import { Favorite } from "@mui/icons-material";
+import { Favorite, FavoriteBorder } from "@mui/icons-material";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addRemoveFavorite } from "../../../../store/slices/favorite";
+import { yellow } from "@mui/material/colors";
 export default function DetailCard() {
   const [movie, setMovie] = useState({});
   const params = useParams();
+  const favoriteArray = useSelector((state) => state.favoriteArray);
   const [companyPoster, setCompanyPoster] = useState("");
-
+  const dispatch = useDispatch();
   useEffect(() => {
     axios
       .get(`https://api.themoviedb.org/3/movie/${params.id}}`, {
@@ -24,8 +28,9 @@ export default function DetailCard() {
         if (companyWithLogo) {
           setCompanyPoster(companyWithLogo.logo_path);
         }
+        window.scrollTo(0, 0);
       });
-  }, []);
+  }, [params.id]);
 
   return (
     <div>
@@ -42,7 +47,27 @@ export default function DetailCard() {
         <div className="col-8 text-start pt-2">
           <div className="d-flex justify-content-between align-items-center">
             <h1 className="fw-bold">{movie.title}</h1>
-            <Favorite fontSize="large" color="" />
+            <div
+              onClick={(e) => {
+                dispatch(addRemoveFavorite(movie));
+              }}
+            >
+              {favoriteArray.some(
+                (favoriteMovie) => favoriteMovie.id === movie.id
+              ) ? (
+                <Favorite
+                  sx={{ color: yellow[300] }}
+                  style={{ cursor: "pointer" }}
+                  fontSize="large"
+                />
+              ) : (
+                <FavoriteBorder
+                  sx={{ color: yellow[300] }}
+                  fontSize="large"
+                  style={{ cursor: "pointer" }}
+                />
+              )}
+            </div>
           </div>
           <h6 className="text-secondary">{movie.release_date}</h6>
           <div className="rating my-3 d-flex flex-inline align-items-center">
