@@ -3,9 +3,11 @@ import Search from "./components/Search";
 import Paginationcomp from "./components/Pagination";
 import Card from "./components/Card";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 export default function Home() {
   const [movieList, setMovieList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch movie data when the component mounts
@@ -24,11 +26,10 @@ export default function Home() {
         const results = res.data.results; // Destructure the response
         setMovieList(results);
       })
-      .catch((error) => {
-        console.error("Error fetching movies:", error);
+      .catch((err) => {
+        navigate("/not-found");
       });
   };
-
 
   const totalPages = 500;
   const handlePageChange = (newPage) => {
@@ -40,7 +41,7 @@ export default function Home() {
   return (
     <>
       <Search />
-      <Card movieList={movieList}  />
+      <Card movieList={movieList} />
       <Paginationcomp
         handlePageChange={handlePageChange}
         currentPage={currentPage}

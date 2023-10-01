@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import DetailCard from "./components/DetailCard";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Card from "../Home/components/Card";
 export default function MovieDetail() {
   const [movieList, setMovieList] = useState([]);
   const params = useParams();
+  const navigate=useNavigate()
   useEffect(() => {
     axios
       .get(`https://api.themoviedb.org/3/movie/${params.id}/recommendations?`, {
@@ -15,7 +16,11 @@ export default function MovieDetail() {
       })
       .then((res) => {
         setMovieList(res.data.results.slice(0, 5));
-      });
+      }).catch((err) => {
+            
+        navigate("/not-found");
+     
+    });;
   }, [params.id]);
   return (
     <div>
