@@ -48,7 +48,6 @@ export default function Search() {
               Search
             </button>
           </div>
-              
         </div>
       </div>
     </div>
