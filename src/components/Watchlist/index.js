@@ -10,7 +10,7 @@ export default function WatchList() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
-    <div className="container ">
+    <div className="container mb-5">
       {favoriteArray.length === 0 ? (
         <div className="mt-5">
           <h1>Your WatchList Is Empty</h1>
@@ -60,7 +60,7 @@ export default function WatchList() {
                             >
                               <Favorite
                                 fontSize="large"
-                                sx={{ color: yellow[300] }}
+                                sx={{ color: yellow[700] }}
                                 style={{ cursor: "pointer" }}
                               />
                             </div>

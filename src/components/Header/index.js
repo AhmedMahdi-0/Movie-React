@@ -8,8 +8,8 @@ export default function Header() {
     <>
       <nav className="navbar sticky-top  nav-dark bg-warning  ">
         <div className="container-fluid position-relative ">
-          <Link to="/" className="navbar-brand">
-            Movie App
+          <Link to="/" className="navbar-brand fw-bold">
+            MOVIE APP
           </Link>
           <Link
             className="d-flex  align-items-center text-decoration-none text-dark me-4"

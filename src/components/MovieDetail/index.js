@@ -6,7 +6,7 @@ import Card from "../Home/components/Card";
 export default function MovieDetail() {
   const [movieList, setMovieList] = useState([]);
   const params = useParams();
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get(`https://api.themoviedb.org/3/movie/${params.id}/recommendations?`, {
@@ -16,14 +16,13 @@ export default function MovieDetail() {
       })
       .then((res) => {
         setMovieList(res.data.results.slice(0, 5));
-      }).catch((err) => {
-            
+      })
+      .catch((err) => {
         navigate("/not-found");
-     
-    });;
+      });
   }, [params.id]);
   return (
-    <div>
+    <div className="mb-5">
       <DetailCard />
       <h1 className=" text-start ms-4">Recommendations</h1>
       <Card movieList={movieList} />

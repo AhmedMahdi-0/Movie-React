@@ -31,10 +31,10 @@ export default function Search() {
         </h6>
 
         <div className="row align-items-center mt-4">
-          <div className="col col-10">
+          <div className="col col-md-8 col-lg-10 col-sm-6 ">
             <input
               type="text"
-              className="form-control shadow"
+              className="form-control shadow fs-4"
               placeholder="Search and Explore"
               value={query}
               onChange={handleInputChange}
@@ -43,7 +43,7 @@ export default function Search() {
           <div className="col">
             <button
               onClick={handleSearch}
-              className="btn btn-warning px-4 py-2 shadow"
+              className="btn btn-warning p-3 shadow fs-5"
             >
               Search
             </button>

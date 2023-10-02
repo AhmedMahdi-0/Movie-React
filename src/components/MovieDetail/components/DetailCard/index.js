@@ -32,16 +32,14 @@ export default function DetailCard() {
         window.scrollTo(0, 0);
       })
       .catch((err) => {
-            
-          navigate("/not-found");
-       
+        navigate("/not-found");
       });
   }, [params.id]);
 
   return (
     <div>
-      <div className="p-5 row row-cols-2">
-        <div className="col-4">
+      <div className="p-4 row row-cols-sm-1 row-cols-lg-2">
+        <div className=" col-4">
           <img
             className=" rounded  "
             src={`http://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -50,7 +48,7 @@ export default function DetailCard() {
             alt="/"
           />
         </div>
-        <div className="col-8 text-start pt-2">
+        <div className=" col-8 text-start pt-2">
           <div className="d-flex justify-content-between align-items-center">
             <h1 className="fw-bold">{movie.title}</h1>
             <div
@@ -62,13 +60,13 @@ export default function DetailCard() {
                 (favoriteMovie) => favoriteMovie.id === movie.id
               ) ? (
                 <Favorite
-                  sx={{ color: yellow[300] }}
+                  sx={{ color: yellow[700] }}
                   style={{ cursor: "pointer" }}
                   fontSize="large"
                 />
               ) : (
                 <FavoriteBorder
-                  sx={{ color: yellow[300] }}
+                  sx={{ color: yellow[700] }}
                   fontSize="large"
                   style={{ cursor: "pointer" }}
                 />
@@ -85,6 +83,7 @@ export default function DetailCard() {
                   max={10}
                   precision={0.5}
                   readOnly
+                  sx={{ color: yellow[700] }}
                 />
               )}
             </h6>{" "}
