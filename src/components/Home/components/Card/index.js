@@ -44,7 +44,7 @@ export default function Card(props) {
         {props.movieList.map((movie) => {
           return (
             <div
-              className="card h-100 col mx-1   gy-3"
+              className="card h-100 col mx-2   gy-3"
               style={{ width: "17rem", cursor: "pointer" }}
               onClick={() => navigate(`/movie-detail/${movie.id}`)}
             >

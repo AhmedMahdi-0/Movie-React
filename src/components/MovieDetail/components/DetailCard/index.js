@@ -38,8 +38,8 @@ export default function DetailCard() {
 
   return (
     <div>
-      <div className="p-5 row row-cols-2">
-        <div className="col-4">
+      <div className="p-4 row row-cols-sm-1 row-cols-lg-2">
+        <div className=" col-4">
           <img
             className=" rounded  "
             src={`http://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -48,7 +48,7 @@ export default function DetailCard() {
             alt="/"
           />
         </div>
-        <div className="col-8 text-start pt-2">
+        <div className=" col-8 text-start pt-2">
           <div className="d-flex justify-content-between align-items-center">
             <h1 className="fw-bold">{movie.title}</h1>
             <div
