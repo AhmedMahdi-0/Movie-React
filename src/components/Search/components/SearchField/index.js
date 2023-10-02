@@ -18,26 +18,25 @@ export default function Searchcomp() {
   };
   return (
     <div className="container">
-      <div className="row align-items-center my-5">
-        <div className="col col-10">
-          <input
-            type="text"
-            className="form-control shadow p-3 fs-4"
-            placeholder="Search and Explore"
-            value={query}
-            onChange={handleInputChange}
-          />
+      <div className="row align-items-center mt-4">
+          <div className="col col-md-8 col-lg-10 col-sm-6 ">
+            <input
+              type="text"
+              className="form-control shadow fs-4"
+              placeholder="Search and Explore"
+              value={query}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="col">
+            <button
+              onClick={handleSearch}
+              className="btn btn-warning px-4 py-2 shadow fs-5"
+            >
+              Search
+            </button>
+          </div>
         </div>
-        <div className="col">
-          <button
-            onClick={handleSearch}
-            className="btn btn-warning px-4 py-3 shadow"
-          >
-            Search
-          </button>
-        </div>
-            
-      </div>
     </div>
   );
 }

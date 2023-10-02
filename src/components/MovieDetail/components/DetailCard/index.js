@@ -32,9 +32,7 @@ export default function DetailCard() {
         window.scrollTo(0, 0);
       })
       .catch((err) => {
-            
-          navigate("/not-found");
-       
+        navigate("/not-found");
       });
   }, [params.id]);
 
@@ -62,13 +60,13 @@ export default function DetailCard() {
                 (favoriteMovie) => favoriteMovie.id === movie.id
               ) ? (
                 <Favorite
-                  sx={{ color: yellow[300] }}
+                  sx={{ color: yellow[700] }}
                   style={{ cursor: "pointer" }}
                   fontSize="large"
                 />
               ) : (
                 <FavoriteBorder
-                  sx={{ color: yellow[300] }}
+                  sx={{ color: yellow[700] }}
                   fontSize="large"
                   style={{ cursor: "pointer" }}
                 />
@@ -85,6 +83,7 @@ export default function DetailCard() {
                   max={10}
                   precision={0.5}
                   readOnly
+                  sx={{ color: yellow[700] }}
                 />
               )}
             </h6>{" "}
