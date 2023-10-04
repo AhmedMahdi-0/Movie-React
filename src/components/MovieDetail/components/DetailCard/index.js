@@ -42,9 +42,8 @@ export default function DetailCard() {
         <div className=" col-4">
           <img
             className=" rounded  "
-            src={`http://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            width={"400px"}
-            height={"500px"}
+            src={`http://image.tmdb.org/t/p/w500${movie.poster_path}`}           
+            style={{ maxWidth: "100%", height: "auto" }}
             alt="/"
           />
         </div>
@@ -92,7 +91,6 @@ export default function DetailCard() {
           <h4 className="my-3">{movie.overview}</h4>
           <div className="catg d-flex flex-inline my-4">
             {movie?.genres?.map((catg) => {
-              console.log(movie);
               return (
                 <div className="bg-warning px-3 py-1 rounded me-2 fs-5 fw-bold">
                   {" "}
