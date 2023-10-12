@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addRemoveFavorite } from "../../../../store/slices/favorite";
 import { useNavigate } from "react-router-dom";
 import "./card.css";
+import image from "./1.png"
 
 function CircularProgressWithLabel(props) {
   return (
@@ -49,7 +50,7 @@ export default function Card(props) {
               onClick={() => navigate(`/movie-detail/${movie.id}`)}
             >
               <img
-                src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                src={image}  //`http://image.tmdb.org/t/p/w500/${movie.poster_path}`
                 className="card-img-top rounded position-relative"
                 width={"25px"}
                 height={"300px"}

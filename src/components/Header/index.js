@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <>
       <nav className="navbar sticky-top  nav-dark bg-warning  ">
-        <div className="container-fluid position-relative ">
+        <div className="container-fluid ">
           <Link to="/" className="navbar-brand fw-bold">
             MOVIE APP
           </Link>

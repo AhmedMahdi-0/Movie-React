@@ -5,6 +5,7 @@ import { addRemoveFavorite } from "../../store/slices/favorite";
 import { yellow } from "@mui/material/colors";
 import { useNavigate } from "react-router-dom";
 import image1 from "./1.png";
+import image2 from "./op.png";
 export default function WatchList() {
   const favoriteArray = useSelector((state) => state.favoriteArray);
   const dispatch = useDispatch();
@@ -42,10 +43,11 @@ export default function WatchList() {
                     <div className="row g-0">
                       <div className="col-md-4">
                         <img
-                          src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                          src={image2} //`http://image.tmdb.org/t/p/w500/${movie.poster_path}`
                           className=" rounded"
                           alt=""
                           height={"300px"}
+                          width={'200px'}
                         />
                       </div>
                       <div className="col-md-8">
