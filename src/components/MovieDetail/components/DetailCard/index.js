@@ -6,6 +6,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addRemoveFavorite } from "../../../../store/slices/favorite";
 import { yellow } from "@mui/material/colors";
+import image from "./1.png"
+
 export default function DetailCard() {
   const [movie, setMovie] = useState({});
   const params = useParams();
@@ -42,9 +44,14 @@ export default function DetailCard() {
         <div className=" col-4">
           <img
             className=" rounded  "
-            src={`http://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            width={"400px"}
-            height={"500px"}
+<<<<<<< HEAD
+            src={image}  //`http://image.tmdb.org/t/p/w500/${movie.poster_path}`
+            style={{ maxWidth: "100%", height: "auto" }}
+            width={'550px'}
+=======
+            src={`http://image.tmdb.org/t/p/w500${movie.poster_path}`}           
+            style={{ maxWidth: "100%", height: "auto" }}
+>>>>>>> 567b13d0e85004278e9740297aeba8e7f6e58884
             alt="/"
           />
         </div>
@@ -92,7 +99,6 @@ export default function DetailCard() {
           <h4 className="my-3">{movie.overview}</h4>
           <div className="catg d-flex flex-inline my-4">
             {movie?.genres?.map((catg) => {
-              console.log(movie);
               return (
                 <div className="bg-warning px-3 py-1 rounded me-2 fs-5 fw-bold">
                   {" "}
