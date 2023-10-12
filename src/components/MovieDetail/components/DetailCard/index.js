@@ -44,9 +44,14 @@ export default function DetailCard() {
         <div className=" col-4">
           <img
             className=" rounded  "
+<<<<<<< HEAD
             src={image}  //`http://image.tmdb.org/t/p/w500/${movie.poster_path}`
             style={{ maxWidth: "100%", height: "auto" }}
             width={'550px'}
+=======
+            src={`http://image.tmdb.org/t/p/w500${movie.poster_path}`}           
+            style={{ maxWidth: "100%", height: "auto" }}
+>>>>>>> 567b13d0e85004278e9740297aeba8e7f6e58884
             alt="/"
           />
         </div>
