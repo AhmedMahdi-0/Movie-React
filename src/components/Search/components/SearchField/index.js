@@ -19,7 +19,7 @@ export default function Searchcomp() {
   return (
     <div className="container">
       <div className="row align-items-center mt-4">
-          <div className="col col-md-8 col-lg-10 col-sm-6 ">
+          <div className="col col-md-8 col-lg-10 col-sm-6">
             <input
               type="text"
               className="form-control shadow fs-4"

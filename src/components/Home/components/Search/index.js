@@ -27,9 +27,8 @@ export default function Search() {
       </h2>
       <div className="container my-3 mx-4">
         <h6>
-          Millions of movies, TV shows and people to discover. Explore now.
+          Thousands of movies, TV shows and people to discover. Explore now.
         </h6>
-
         <div className="row align-items-center mt-4">
           <div className="col col-md-8 col-lg-10 col-sm-6 ">
             <input
@@ -43,7 +42,7 @@ export default function Search() {
           <div className="col">
             <button
               onClick={handleSearch}
-              className="btn btn-warning p-3 shadow fs-5"
+              className="btn btn-warning px-4  py-2 shadow fs-5"
             >
               Search
             </button>
