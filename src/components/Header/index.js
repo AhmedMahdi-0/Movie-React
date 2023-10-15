@@ -12,7 +12,7 @@ export default function Header() {
         Please note that I've changed the images of the movies as some of them
         contained inappropriate content
       </h6>
-      <nav className="navbar sticky-top  nav-dark bg-warning mt-0 ">
+      <nav className="navbar sticky-top gx-0 nav-dark bg-warning mt-0 ">
         <div className="container-fluid ">
           <Link to="/" className="navbar-brand fw-bold">
             MOVIE APP
