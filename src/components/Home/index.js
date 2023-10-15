@@ -20,6 +20,7 @@ export default function Home() {
         params: {
           api_key: process.env.REACT_APP_API_KEY,
           page: currentPage,
+          limit:10
         },
       })
       .then((res) => {

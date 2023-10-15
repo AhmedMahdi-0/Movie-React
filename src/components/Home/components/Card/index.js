@@ -41,7 +41,7 @@ export default function Card(props) {
 
   return (
     <>
-      <div className="row row-cols-5 ms-5">
+      <div className="row row-cols-5 ms-3 gx-0 justify-content-around mb-5">
         {props.movieList.map((movie) => {
           return (
             <div
