@@ -40,7 +40,7 @@ export default function DetailCard() {
 
   return (
     <div>
-      <div className="p-4 row row-cols-sm-1 row-cols-lg-2">
+      <div className="p-4 row row-cols-sm-1 row-cols-lg-2 gx-0">
         <div className=" col-4">
           <img
             className=" rounded  "
